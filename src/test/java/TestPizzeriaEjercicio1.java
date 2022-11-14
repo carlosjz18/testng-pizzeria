@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import testng_pizerria.PizzaOrden;
+import mx.com.cj.pizzeria.PizzaOrden;
 
 public class TestPizzeriaEjercicio1 {
 

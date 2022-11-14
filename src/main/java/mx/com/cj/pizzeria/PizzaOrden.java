@@ -1,4 +1,4 @@
-package testng_pizerria;
+package mx.com.cj.pizzeria;
 
 import java.util.Scanner;
 
