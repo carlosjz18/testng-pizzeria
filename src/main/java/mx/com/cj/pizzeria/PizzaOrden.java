@@ -9,7 +9,7 @@ public class PizzaOrden {
 
     public void desplegarMensajeInicio() {
         System.out.println("Bienvenido a la aplicación para ordenar pizza.\n\n"
-                + "Sigue las instrucciones por favor.\n\n");
+                + "Sigue las instrucciones por favor.");
     }
 
     public boolean getOpcionVeg() {
@@ -71,7 +71,7 @@ public class PizzaOrden {
                     + "[f] Salchicha \n");
         }
 
-        System.out.println("[o] Ninguno \n\n");
+        System.out.println("[o] Ninguno");
 
     }
 

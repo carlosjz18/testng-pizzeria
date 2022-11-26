@@ -1,0 +1,11 @@
+Bienvenido a la aplicación para ordenar pizza.
+
+Sigue las instrucciones por favor.
+¿Deseas pizza vegetariana (Y/N)?
+¿Deseas pizza vegetariana (Y/N)?
+
+===============================================
+Default Suite
+Total tests run: 14, Passes: 14, Failures: 0, Skips: 0
+===============================================
+

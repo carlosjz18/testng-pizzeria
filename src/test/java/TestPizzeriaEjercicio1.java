@@ -8,15 +8,14 @@ import mx.com.cj.pizzeria.PizzaOrden;
 
 public class TestPizzeriaEjercicio1 {
 
-    CommonMethods Common;
+    CommonMethods common;
     PizzaOrden nuevaOrden;
     String stdOutputPath;
 
     @BeforeClass
     public void initialConditions() {
-        Common = new CommonMethods();
+        common = new CommonMethods();
         stdOutputPath = "output_files/output.txt";
-
     }
 
     @BeforeTest
@@ -27,12 +26,12 @@ public class TestPizzeriaEjercicio1 {
     @Test
     public void verificarMensajeDeInicioSeDespliega() throws FileNotFoundException {
 
-        Common.redirectStdOutput(stdOutputPath);
+        common.redirectStdOutput(stdOutputPath);
         nuevaOrden.desplegarMensajeInicio();
 
-        String actualResult = Common.readFileContents(stdOutputPath);
+        String actualResult = common.readFileContents(stdOutputPath);
         String expectedResult = "Bienvenido a la aplicación para ordenar pizza.\n\n"
-                + "Sigue las instrucciones por favor.\n\n";
+                + "Sigue las instrucciones por favor.";
 
         Assert.assertEquals(actualResult, expectedResult);
     }
@@ -111,41 +110,37 @@ public class TestPizzeriaEjercicio1 {
 
     @Test
     public void verificarOpcionVegAlPreguntarOpcionVeganaTrue() {
-
         String stdInputPath = "input_files/opcion_veg_true.txt";
-        Common.redirectStdInput(stdInputPath);
+        common.redirectStdInput(stdInputPath);
         nuevaOrden.preguntarPizzaVegetariana();
         boolean actualResult = nuevaOrden.getOpcionVeg();
         boolean expectedResult = true;
         Assert.assertEquals(actualResult, expectedResult);
-
     }
 
     @Test
     public void verificarOpcionVegAlPreguntarOpcionVeganaFalse() {
-
         String stdInputPath = "input_files/opcion_veg_false.txt";
-        Common.redirectStdInput(stdInputPath);
+        common.redirectStdInput(stdInputPath);
         nuevaOrden.preguntarPizzaVegetariana();
         boolean actualResult = nuevaOrden.getOpcionVeg();
         boolean expectedResult = false;
         Assert.assertEquals(actualResult, expectedResult);
-
     }
 
     @Test
     public void verificarListaIngredientesVegetarianos() throws FileNotFoundException {
 
-        Common.redirectStdOutput(stdOutputPath);
+        common.redirectStdOutput(stdOutputPath);
         nuevaOrden.setOpcionVeg("Y");
         nuevaOrden.desplegarIngredientes();
 
-        String actualResult = Common.readFileContents(stdOutputPath);
+        String actualResult = common.readFileContents(stdOutputPath);
         String expectedResult = "Selecciona 3 ingredientes de la siguiente  lista: \n"
                 + "[a] Pimiento \n"
                 + "[b] Hongos \n"
                 + "[c] Espinaca \n"
-                + "[o] Ninguno \n\n";
+                + "[o] Ninguno";
 
         Assert.assertEquals(actualResult, expectedResult);
     }
@@ -153,11 +148,11 @@ public class TestPizzeriaEjercicio1 {
     @Test
     public void verificarListaIngredientesNoVegetarianos() throws FileNotFoundException {
 
-        Common.redirectStdOutput(stdOutputPath);
+        common.redirectStdOutput(stdOutputPath);
         nuevaOrden.setOpcionVeg("N");
         nuevaOrden.desplegarIngredientes();
 
-        String actualResult = Common.readFileContents(stdOutputPath);
+        String actualResult = common.readFileContents(stdOutputPath);
         String expectedResult = "Selecciona 3 ingredientes de la siguiente  lista: \n"
                 + "[a] Pimiento \n"
                 + "[b] Hongos \n"
@@ -165,7 +160,7 @@ public class TestPizzeriaEjercicio1 {
                 + "[d] Peperoni \n"
                 + "[e] Jamon \n"
                 + "[f] Salchicha \n"
-                + "[o] Ninguno \n\n";
+                + "[o] Ninguno";
 
         Assert.assertEquals(actualResult, expectedResult);
     }
@@ -174,13 +169,12 @@ public class TestPizzeriaEjercicio1 {
     public void guardarIngredientesComoHongos() {
 
         String stdInputPath = "input_files/ingrediente_hongos.txt";
-        Common.redirectStdInput(stdInputPath);
+        common.redirectStdInput(stdInputPath);
         nuevaOrden.guardarIngredientes();
         String expectedResult = "Hongos";
         Assert.assertEquals(nuevaOrden.getIngrediente1(), expectedResult);
-//		Assert.assertEquals(nuevaOrden.getIngrediente2(), expectedResult);
-//		Assert.assertEquals(nuevaOrden.getIngrediente3(), expectedResult);
-
+        Assert.assertEquals(nuevaOrden.getIngrediente2(), expectedResult);
+        Assert.assertEquals(nuevaOrden.getIngrediente3(), expectedResult);
     }
 
 }
