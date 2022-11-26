@@ -57,7 +57,7 @@ public class TestPizzeriaEjercicio2 {
     public void verificarSaldoMayorA150() {
         nuevaOrden.setSaldoPuntos(151);
         Assert.assertEquals(nuevaOrden.mostrarProductosExtras(), "Espagueti,Queso Extra,Cupon Pizza Gratis");
-        Assert.assertEquals(nuevaOrden.getEstatusCupon(), false);
+        Assert.assertEquals(nuevaOrden.getEstatusCupon(), true);
     }
 
     @Test

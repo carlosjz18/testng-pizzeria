@@ -4,7 +4,7 @@ public class SistemaLealtad {
 
     private boolean estatusTajeta;
     private int saldoPuntos;
-    private boolean estatusCupon;
+    private boolean estatusCupon = false;
 
 
     public boolean getEstatusTarjeta() {
@@ -32,15 +32,26 @@ public class SistemaLealtad {
     }
 
     public String mostrarProductosExtras() {
-        return null;
+        String productosExtras = "";
+
+        if (getSaldoPuntos() >= 50 && getSaldoPuntos() <= 100) {
+            productosExtras = "Espagueti";
+        } else if (getSaldoPuntos() >= 101 && getSaldoPuntos() <= 150) {
+            productosExtras = "Espagueti,Queso Extra";
+        } else if (getSaldoPuntos() >= 150) {
+            productosExtras = "Espagueti,Queso Extra,Cupon Pizza Gratis";
+            setEstatusCupon(true);
+        }
+
+        return productosExtras;
     }
 
     public void usarCupon(String respuesta) {
 
         if (respuesta.equals("Y")) {
-
+            setEstatusCupon(false);
         } else if (respuesta.equals("N")) {
-
+            setEstatusCupon(true);
         } else {
 
         }
