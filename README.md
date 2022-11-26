@@ -10,6 +10,11 @@ BEDU: Developer Engineering
 
 ## Evidencias 🗂️
 
+PizzaOrdenTest.java
+![PizzaOrdenTest](./media/PizzaOrdenTest.png)
+
+SistemaLealtadTest.java
+![PizzaOrdenTest](./media/SistemaLealtadTest.png)
 
 ## Construido con 🛠️
 
